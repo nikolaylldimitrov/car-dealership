@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyCarousel from "./components/carousel";
+import i18n from "./i18n";
+import { Translation } from "react-i18next";
+import NavBar from "./components/navigation";
+import { Route, Routes } from "react-router-dom";
+import AboutUsPage from "./components/aboutus";
+import ContactUsPage from "./components/contactus";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Translation>
+        {(t) => (
+          <div>
+            <NavBar t={t} i18n={i18n} />
+            <Routes>
+              <Route path="/" element={<MyCarousel />} />
+              <Route path="/contact-us" element={<ContactUsPage />} />
+              <Route path="/about-us" element={<AboutUsPage />} />
+            </Routes>
+          </div>
+        )}
+      </Translation>
     </div>
   );
 }
