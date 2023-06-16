@@ -1,0 +1,14 @@
+.MapsGoogle {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .map-container {
+    height: 100%;
+    width: 100%;
+  }
+  .map-container{
+    width:45%;
+    height:450px;
+  }
+  

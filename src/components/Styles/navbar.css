@@ -67,6 +67,7 @@ header .nav-btn{
 
 	header .responsive_nav {
 		transform: translateY(100vh);
+		z-index: 99999
 	}
 
 	nav .nav-close-btn {

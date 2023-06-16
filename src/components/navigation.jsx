@@ -20,7 +20,7 @@ function NavBar({ t, i18n }) {
       <nav ref={navRef}>
         <Link to="/">{t("Home")} </Link>
         <Link to="/about-us">{t("About")}</Link>
-        <Link to="/">
+        <Link to="/available-cars">
           {t("Available")} {t("Cars")}
         </Link>
         <Link to="/contact-us">
