@@ -1,5 +1,7 @@
 import React, { Component, useState } from "react";
 import carsApi from "../api/api";
+import { CarCard } from "./carcard";
+import "./Styles/carcard.css";
 
 const AvailableCars = () => {
   const [cars, setCars] = useState([]);
@@ -8,8 +10,21 @@ const AvailableCars = () => {
   if (cars.lenght === 0) {
     return <div>Currently there are no available cars</div>;
   }
-  const myCars = cars.map((c) => <div key={c.brand}>{c.brand}</div>);
-  return <div> {myCars}</div>;
+
+  const myCars = cars.map((c) => (
+    <div className="carDetail-container">
+      <CarCard
+        key={c.id}
+        frontpicture={c.frontpicture}
+        brand={c.brand}
+        model={c.model}
+        engine={c.engine}
+        price={c.price}
+      />
+    </div>
+  ));
+
+  return <div className="cars-look">{myCars}</div>;
 };
 
 export default AvailableCars;
