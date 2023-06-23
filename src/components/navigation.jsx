@@ -4,6 +4,7 @@ import logo from "./images/carlogo4.png";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useRef } from "react";
+import FavoriteList from "../components/favoritelist";
 
 function NavBar({ t, i18n }) {
   const navRef = useRef();
@@ -26,6 +27,7 @@ function NavBar({ t, i18n }) {
         <Link to="/contact-us">
           {t("Contact")} {t("Us")}
         </Link>
+        <FavoriteList></FavoriteList>
         <button
           className="nav-lang-button"
           onClick={() => changeLanguage(i18n.language)}
