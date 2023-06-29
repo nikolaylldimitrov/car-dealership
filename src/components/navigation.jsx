@@ -27,7 +27,7 @@ function NavBar({ t, i18n }) {
         <Link to="/contact-us">
           {t("Contact")} {t("Us")}
         </Link>
-        <FavoriteList></FavoriteList>
+        <FavoriteList />
         <button
           className="nav-lang-button"
           onClick={() => changeLanguage(i18n.language)}
