@@ -26,16 +26,12 @@
 
 .address-container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .address-details {
   float: left;
   width: 45%;
-
-
-
-
 }
 
 .contact-us-contact-information {
@@ -47,8 +43,6 @@
 .contact-us {
   margin: 15px;
 
-
-
 }
 
 .contact-us h2 {
@@ -56,10 +50,8 @@
 }
 
 
-
 form {
   width: 300px;
-
 
 }
 

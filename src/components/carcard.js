@@ -1,21 +1,29 @@
 import React from "react";
 import "./Styles/carcard.css";
 import { Button } from "antd";
-import { HeartOutlined } from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { OmitProps } from "antd/es/transfer/ListBody";
-import { AddToFav } from "../api/actions/FavoriteActions";
+import { AddToFav, RemoveFav } from "../api/actions/FavoriteActions";
 import { useSelector } from "react-redux";
 
-export const CarCard = ({ brand, frontpicture, model, engine, price }) => {
+export const CarCard = ({ id, brand, frontpicture, model, engine, price }) => {
   const dispatch = useDispatch(); // Sending data to store
   // const Favorites = useSelector((state) => state.Favorites);
   // const { favorites } = Favorites;
+  const isFavorite = useSelector((state) => {
+    return state.Favorites.favorites.filter((f) => f.id === id)[0];
+  });
+
   const handleOnClick = (e) => {
     e.preventDefault();
-    dispatch(AddToFav({ frontpicture, brand, model }));
+    if (isFavorite) {
+      dispatch(RemoveFav({ id }));
+    } else {
+      dispatch(AddToFav({ id, frontpicture, brand, model }));
+    }
   };
 
+  const favoriteIcon = isFavorite ? <HeartFilled /> : <HeartOutlined />;
   return (
     <div className="car-card">
       <img src={frontpicture} alt={model} />{" "}
@@ -29,7 +37,8 @@ export const CarCard = ({ brand, frontpicture, model, engine, price }) => {
         <Button
           type="normal"
           shape="round"
-          icon={<HeartOutlined onClick={handleOnClick} />}
+          icon={favoriteIcon}
+          onClick={handleOnClick}
         />
       </div>
     </div>

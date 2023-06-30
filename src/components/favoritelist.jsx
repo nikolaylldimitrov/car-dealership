@@ -22,20 +22,20 @@ const FavoriteList = (props) => {
 
   //const Brands = props.Favorites.slice(-6).map((car) => car.brand);
   return (
-    <span className="drop-down">
+    <div className="drop-down">
       <button className="drop-down-btn" onClick={toggleDropdown}>
-        Favorite List&#9662;
+        Favorite List&#9662;``
       </button>
       {isDropdownOpen && (
         <ul className="drop-down-selector">
-          {recentFavorites.map((car, index) => (
+          {recentFavorites.map((car) => (
             <li
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index)}
+              key={car.id}
+              onMouseEnter={() => handleMouseEnter(car.id)}
               onMouseLeave={handleMouseLeave}
             >
               <img src={car.frontpicture} alt={car.brand} />
-              {hoveredIndex === index && (
+              {hoveredIndex === car.id && (
                 <span>
                   {car.brand}
                   {car.model}
@@ -45,7 +45,7 @@ const FavoriteList = (props) => {
           ))}
         </ul>
       )}
-    </span>
+    </div>
   );
 };
 const mapStateToProps = (state) => {

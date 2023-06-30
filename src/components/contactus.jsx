@@ -1,6 +1,4 @@
 import { React, useState } from "react";
-import i18n from "../i18n";
-import { Translation } from "react-i18next";
 import "./Styles/contactus.css";
 import MapsGoogle from "./googlemaps";
 import carsApi from "../api/api";

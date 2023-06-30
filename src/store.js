@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { FavoriteReducer } from "./reducers/FavoriteReducer";
 
 const reducer = combineReducers({ Favorites: FavoriteReducer });
-const initialState = { favorites: [] };
+const initialState = { Favorites: { favorites: [] } };
 const middleware = [thunk];
 
 export const store = createStore(

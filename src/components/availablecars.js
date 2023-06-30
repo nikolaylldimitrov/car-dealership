@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import carsApi from "../api/api";
 import { CarCard } from "./carcard";
 import "./Styles/carcard.css";
@@ -12,9 +12,9 @@ const AvailableCars = () => {
   }
 
   const myCars = cars.map((c) => (
-    <div className="carDetail-container">
+    <div className="carDetail-container" key={c.id}>
       <CarCard
-        key={c.id}
+        id={c.id}
         frontpicture={c.frontpicture}
         brand={c.brand}
         model={c.model}

@@ -1,7 +1,5 @@
 import React from "react";
-import NavBar from "./navigation";
-import i18n from "../i18n";
-import { Translation } from "react-i18next";
+
 import "./Styles/aboutus.css";
 
 const AboutUsPage = () => {
